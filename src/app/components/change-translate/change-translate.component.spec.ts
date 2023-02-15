@@ -8,9 +8,8 @@ describe('ChangeTranslateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChangeTranslateComponent ]
-    })
-    .compileComponents();
+      declarations: [ChangeTranslateComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChangeTranslateComponent);
     component = fixture.componentInstance;
