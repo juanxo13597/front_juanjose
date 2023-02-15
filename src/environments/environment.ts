@@ -7,6 +7,7 @@ export const environment = {
   info: {
     nameApp: 'Juan José',
   },
+  api: '/api/',
 };
 
 /*
