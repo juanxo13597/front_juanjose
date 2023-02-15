@@ -1,0 +1,6 @@
+package.json
+package-lock.json
+dist
+index.html
+documentation
+node_modules

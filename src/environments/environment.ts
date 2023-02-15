@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   info: {
     nameApp: 'Juan José',
-  }
+  },
 };
 
 /*
