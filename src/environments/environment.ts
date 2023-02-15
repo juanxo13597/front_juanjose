@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 /** variables de entorno dev */
 export const environment = {
-  production: false
+  production: false,
+  info: {
+    nameApp: 'Juan José',
+  }
 };
 
 /*

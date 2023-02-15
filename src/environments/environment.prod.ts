@@ -1,4 +1,7 @@
 /** variables de entorno prod */
 export const environment = {
-  production: true
+  production: true,
+  info: {
+    nameApp: 'Juan José',
+  }
 };
