@@ -1,15 +1,13 @@
-<span class="form-inline">
-  <select
-    class="form-control"
-    #selectedLang
-    (change)="switchLang(selectedLang.value)"
+<select
+  class="form-select"
+  #selectedLang
+  (change)="switchLang(selectedLang.value)"
+>
+  <option
+    *ngFor="let language of translate.getLangs()"
+    [value]="language"
+    [selected]="language === translate.currentLang"
   >
-    <option
-      *ngFor="let language of translate.getLangs()"
-      [value]="language"
-      [selected]="language === translate.currentLang"
-    >
-      {{ language }}
-    </option>
-  </select>
-</span>
+    {{ language }}
+  </option>
+</select>
