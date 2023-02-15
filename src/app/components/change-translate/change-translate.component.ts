@@ -9,7 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ChangeTranslateComponent {
   /** constructor */
-  constructor(public translate: TranslateService) {}
+  constructor(
+    /** servicio de traducciones */
+    public translate: TranslateService
+  ) {}
 
   /** cambiar de idioma */
   switchLang(lang: string) {

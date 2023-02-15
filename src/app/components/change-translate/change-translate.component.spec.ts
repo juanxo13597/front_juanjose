@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ChangeTranslateComponent } from './change-translate.component';
 
@@ -8,6 +9,7 @@ describe('ChangeTranslateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [TranslateModule.forRoot()],
       declarations: [ChangeTranslateComponent],
     }).compileComponents();
 
@@ -18,5 +20,11 @@ describe('ChangeTranslateComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should change language', () => {
+    component.switchLang('en');
+
+    expect(component.translate.currentLang).toBe('en');
   });
 });
