@@ -4,5 +4,5 @@ export const environment = {
   info: {
     nameApp: 'Juan José',
   },
-  api: '/api/',
+  api: 'http://localhost:3000/api/',
 };
