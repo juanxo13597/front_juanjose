@@ -21,10 +21,12 @@
             routerLink="/"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >Inicio</a
+            >{{ "main-menu.home" | translate }}</a
           >
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<app-change-translate></app-change-translate>

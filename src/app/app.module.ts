@@ -1,16 +1,47 @@
+import { environment } from './../environments/environment';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
 
 @NgModule({
-  declarations: [AppComponent, MainMenuComponent, HomePageComponent, Error404Component],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    MainMenuComponent,
+    HomePageComponent,
+    Error404Component,
+    ChangeTranslateComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  /** constructor de la app */
+  constructor(private title: Title) {
+    this.title.setTitle(environment.info.nameApp);
+  }
+}
+
+/** AOT compilation support */
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

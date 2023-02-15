@@ -8,9 +8,4 @@ import { Injectable } from '@angular/core';
 export class UtilsService {
   /** informacion de la aplicacion */
   info = environment.info;
-
-  /** generador de titulo para la app */
-  public genTitle(titleApp: string): string {
-    return this.info.nameApp + ' | ' + titleApp;
-  }
 }
