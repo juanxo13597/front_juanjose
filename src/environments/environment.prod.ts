@@ -4,5 +4,5 @@ export const environment = {
   info: {
     nameApp: 'Juan José',
   },
-  api: '/api/	',
+  api: 'https://backjuanjose-production.up.railway.app/api/',
 };

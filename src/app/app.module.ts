@@ -10,6 +10,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ChangeTranslateComponent } from './components/change-translate/change-t
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
