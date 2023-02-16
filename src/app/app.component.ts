@@ -1,7 +1,6 @@
-import { environment } from './../environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AppService } from './app.service';
 
 /** componente root */
 @Component({
@@ -16,21 +15,19 @@ export class AppComponent {
   /** constructor */
   constructor(
     private translate: TranslateService,
-    private HttpClient: HttpClient
+    private appService: AppService
   ) {
-    translate.addLangs(['es', 'en']);
-    translate.setDefaultLang('es');
+    this.translate.addLangs(['es', 'en']);
+    this.translate.setDefaultLang('es');
 
     this.isBackActive();
   }
 
   /** comprobar si back esta activo */
   isBackActive() {
-    this.HttpClient.get(environment.api + 'init').subscribe({
+    this.appService.init().subscribe({
       next: () => {
-        setTimeout(() => {
-          this.loading = false;
-        }, 1000);
+        this.loading = false;
       },
     });
   }
