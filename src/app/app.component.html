@@ -1,4 +1,6 @@
-<ng-container *ngIf="loading">LOADING</ng-container>
+<ng-container *ngIf="loading">
+  <app-loading color="blue"></app-loading>
+</ng-container>
 
 <ng-container *ngIf="!loading">
   <app-main-menu></app-main-menu>
