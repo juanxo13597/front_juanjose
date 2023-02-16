@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { MainMenuRightComponent } from './main-menu-right.component';
 
@@ -8,9 +9,9 @@ describe('MainMenuRightComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainMenuRightComponent ]
-    })
-    .compileComponents();
+      imports: [TranslateModule.forRoot()],
+      declarations: [MainMenuRightComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MainMenuRightComponent);
     component = fixture.componentInstance;

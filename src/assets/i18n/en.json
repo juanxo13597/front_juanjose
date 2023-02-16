@@ -6,5 +6,9 @@
       "register": "Register"
     }
   },
-  "lenguage": "language:"
+  "lenguage": "language:",
+  "opps": "Oops!",
+  "notFound": "404 Not Found",
+  "notFoundMessage": "Sorry, an error has occured, Requested page not found!",
+  "backToHome": "Back to home"
 }

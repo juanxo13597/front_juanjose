@@ -1,1 +1,16 @@
-<p>error404 works!</p>
+<!-- pagina de error 404 bootstrap -->
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="error-template">
+        <h1>{{ "opps" | translate }}</h1>
+        <h2>{{ "notFound" | translate }}</h2>
+        <div class="error-details">{{ "notFoundMessage" | translate }}</div>
+
+        <a href="/" id="backtohome" class="btn btn-primary mt-4">
+          {{ "backToHome" | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

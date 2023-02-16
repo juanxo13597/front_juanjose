@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Error404Component } from './error404.component';
@@ -8,6 +9,7 @@ describe('Error404Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [TranslateModule.forRoot()],
       declarations: [Error404Component],
     }).compileComponents();
 
