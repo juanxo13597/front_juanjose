@@ -10,5 +10,19 @@
   "opps": "Oops!",
   "notFound": "404 Not Found",
   "notFoundMessage": "Sorry, an error has occured, Requested page not found!",
-  "backToHome": "Back to home"
+  "backToHome": "Back to home",
+  "auth": {
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "password": "Password",
+    "register": "Register",
+    "validation": {
+      "required": "The field is required.",
+      "minlength": "The field must have a length of at least",
+      "minlength2": "characters.",
+      "maxlength": "The field must be less than",
+      "email": "The field must be of type email"
+    }
+  }
 }

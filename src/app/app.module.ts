@@ -37,6 +37,7 @@ import { MainMenuRightComponent } from './components/main-menu-right/main-menu-r
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [TranslateModule],
 })
 export class AppModule {
   /** constructor de la app */

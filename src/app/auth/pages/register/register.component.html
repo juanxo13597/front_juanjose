@@ -1,0 +1,135 @@
+<!-- registro con bootstrap 5 -->
+
+<div class="container">
+  <form class="row" [formGroup]="registerForm" (ngSubmit)="submit()">
+    <!-- columna izquierda -->
+    <div class="col-lg-6">
+      <!-- nombre -->
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [ngClass]="
+            name?.touched ? (name?.valid ? 'is-valid' : 'is-invalid') : ''
+          "
+          placeholder="name"
+          formControlName="name"
+        />
+        <label for="nombre">{{ "auth.name" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="name?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="name?.errors?.['minlength']">
+          {{ "auth.validation.minlength" | translate }}
+          {{ name?.errors?.['minlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ name?.errors?.['minlength']?.actualLength }}]
+        </div>
+        <div class="invalid-feedback" *ngIf="name?.errors?.['maxlength']">
+          {{ "auth.validation.maxlength" | translate }}
+          {{ name?.errors?.['maxlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ name?.errors?.['maxlength']?.actualLength }}]
+        </div>
+      </div>
+      <!-- apellidos -->
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="
+            surname?.touched ? (surname?.valid ? 'is-valid' : 'is-invalid') : ''
+          "
+          id="surname"
+          placeholder="apellidos"
+          formControlName="surname"
+        />
+        <label for="surname">{{ "auth.surname" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="surname?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="surname?.errors?.['minlength']">
+          {{ "auth.validation.minlength" | translate }}
+          {{ surname?.errors?.['minlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ surname?.errors?.['minlength']?.actualLength }}]
+        </div>
+        <div class="invalid-feedback" *ngIf="surname?.errors?.['maxlength']">
+          {{ "auth.validation.maxlength" | translate }}
+          {{ surname?.errors?.['maxlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ surname?.errors?.['maxlength']?.actualLength }}]
+        </div>
+      </div>
+    </div>
+    <!-- columna derecha -->
+    <div class="col-lg-6">
+      <!-- email -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          [ngClass]="
+            email?.touched ? (email?.valid ? 'is-valid' : 'is-invalid') : ''
+          "
+          id="email"
+          placeholder="email@email.es"
+          formControlName="email"
+        />
+        <label for="email">{{ "auth.email" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="email?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="email?.errors?.['email']">
+          {{ "auth.validation.email" | translate }}
+        </div>
+      </div>
+      <!-- contraseña -->
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="
+            password?.touched
+              ? password?.valid
+                ? 'is-valid'
+                : 'is-invalid'
+              : ''
+          "
+          id="password"
+          placeholder="********"
+          formControlName="password"
+        />
+        <label for="password">{{ "auth.password" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="password?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="password?.errors?.['minlength']">
+          {{ "auth.validation.minlength" | translate }}
+          {{ password?.errors?.['minlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password?.errors?.['minlength']?.actualLength }}]
+        </div>
+        <div class="invalid-feedback" *ngIf="password?.errors?.['maxlength']">
+          {{ "auth.validation.maxlength" | translate }}
+          {{ password?.errors?.['maxlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password?.errors?.['maxlength']?.actualLength }}]
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="btn btn-primary d-block mx-auto col-3"
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >
+      {{ "auth.register" | translate }}
+    </button>
+  </form>
+</div>

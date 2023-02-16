@@ -9,6 +9,10 @@ const routes: Routes = [
     component: HomePageComponent,
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: '**',
     component: Error404Component,
   },
