@@ -1,6 +1,10 @@
 {
   "main-menu": {
-    "home": "Inicio"
+    "home": "Inicio",
+    "right": {
+      "login": "Iniciar Sesión",
+      "register": "Registrarse"
+    }
   },
   "lenguage": "Lenguaje:"
 }

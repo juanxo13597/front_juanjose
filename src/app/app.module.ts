@@ -11,6 +11,7 @@ import { Error404Component } from './pages/error404/error404.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
 import { SharedModule } from './shared/shared.module';
+import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     HomePageComponent,
     Error404Component,
     ChangeTranslateComponent,
+    MainMenuRightComponent,
   ],
   imports: [
     BrowserModule,
