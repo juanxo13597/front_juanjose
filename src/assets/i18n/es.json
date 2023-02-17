@@ -25,6 +25,10 @@
       "maxlength": "El campo debe tener menos de",
       "email": "El campo debe de ser de tipo email",
       "noMatchPassword": "Las contraseñas no coinciden"
+    },
+    "response":{
+      "registerOK": "Registro exitoso",
+      "emailExists": "El email ya existe"
     }
   }
 }

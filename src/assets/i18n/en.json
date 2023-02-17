@@ -25,6 +25,10 @@
       "maxlength": "The field must be less than",
       "email": "The field must be of type email",
       "noMatchPassword": "The passwords do not match"
+    },
+    "response":{
+      "registerOK": "The user has been registered successfully",
+      "emailExists": "The email already exists"
     }
   }
 }

@@ -1,6 +1,13 @@
+import { registerModelResponse } from './../../models/register.model';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PasswordConfirmationValidator } from '../../../shared/services/validators';
+import {
+  registerModelFB,
+  stateRegisterModel,
+} from '../../models/register.model';
+import { AuthService } from './../../services/auth.service';
+import { constants } from '../../../shared/constants/constants';
 
 /** pagina de registro */
 @Component({
@@ -10,7 +17,7 @@ import { PasswordConfirmationValidator } from '../../../shared/services/validato
 })
 export class RegisterComponent {
   /** formulario de registro */
-  registerForm = this.fb.group({
+  registerForm: registerModelFB = this.fb.group({
     name: [
       '',
       [Validators.required, Validators.minLength(2), Validators.maxLength(10)],
@@ -43,13 +50,49 @@ export class RegisterComponent {
     ),
   });
 
+  state: stateRegisterModel = { error: false, message: '', send: false };
+
   /** constructor */
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private AuthService: AuthService) {}
 
   /** submit */
-  submit() {
-    console.log(this.registerForm.value);
+  submit(): void {
+    this.AuthService.register(this.registerForm).subscribe({
+      next: (resp) => {
+        this.manageState(resp);
+      },
+    });
   }
+
+  /** manage state */
+  manageState(resp: registerModelResponse): void {
+    if (resp.email) {
+      this.state = {
+        error: false,
+        message: 'auth.response.registerOK',
+        send: true,
+      };
+    }
+
+    if (resp.status === 401 && resp.message === 'Email already exists') {
+      this.state = {
+        error: true,
+        message: 'auth.response.emailExists',
+        send: true,
+      };
+    }
+
+    setTimeout(() => {
+      this.resetForm();
+    }, constants.setTimeOut);
+  }
+
+  /** reset state */
+  resetForm(): void {
+    this.state = { error: false, message: '', send: false };
+    this.registerForm.reset();
+  }
+
   /** get name */
   get name() {
     return this.registerForm.get('name');
