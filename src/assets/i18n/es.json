@@ -28,7 +28,8 @@
     },
     "response":{
       "registerOK": "Registro exitoso",
-      "emailExists": "El email ya existe"
+      "emailExists": "El email ya existe",
+      "passwordsNotMatch": "Las contraseñas no coinciden"
     }
   }
 }

@@ -82,6 +82,17 @@ export class RegisterComponent {
       };
     }
 
+    if (
+      resp.status === 401 &&
+      resp.message === 'Password confirmation does not match'
+    ) {
+      this.state = {
+        error: true,
+        message: 'auth.response.passwordsNotMatch',
+        send: true,
+      };
+    }
+
     setTimeout(() => {
       this.resetForm();
     }, constants.setTimeOut);

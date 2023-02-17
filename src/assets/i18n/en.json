@@ -28,7 +28,8 @@
     },
     "response":{
       "registerOK": "The user has been registered successfully",
-      "emailExists": "The email already exists"
+      "emailExists": "The email already exists",
+      "passwordsNotMatch": "The passwords do not match"
     }
   }
 }
