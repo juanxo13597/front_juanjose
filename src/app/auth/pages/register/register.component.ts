@@ -50,6 +50,7 @@ export class RegisterComponent {
     ),
   });
 
+  /** estado */
   state: stateRegisterModel = { error: false, message: '', send: false };
 
   /** constructor */
