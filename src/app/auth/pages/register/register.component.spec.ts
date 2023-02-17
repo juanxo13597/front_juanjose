@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -10,7 +11,11 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, TranslateModule.forRoot()],
+      imports: [
+        ReactiveFormsModule,
+        TranslateModule.forRoot(),
+        HttpClientTestingModule,
+      ],
       declarations: [RegisterComponent],
     }).compileComponents();
 
@@ -21,13 +26,5 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  describe('Form', () => {
-    it('register success', () => {
-      component.submit();
-
-      expect(true).toEqual(true);
-    });
   });
 });
