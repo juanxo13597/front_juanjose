@@ -16,13 +16,15 @@
     "surname": "Apellidos",
     "email": "Email",
     "password": "Contraseña",
+    "password_confirmation":"Confirmar Contraseña",
     "register": "Registrar",
     "validation": {
       "required": "El campo es requerido.",
       "minlength": "El campo debe tener una longitud de almenos ",
       "minlength2": "caracteres.",
       "maxlength": "El campo debe tener menos de",
-      "email": "El campo debe de ser de tipo email"
+      "email": "El campo debe de ser de tipo email",
+      "noMatchPassword": "Las contraseñas no coinciden"
     }
   }
 }

@@ -4,6 +4,27 @@
   <form class="row" [formGroup]="registerForm" (ngSubmit)="submit()">
     <!-- columna izquierda -->
     <div class="col-lg-6">
+      <!-- email -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          [ngClass]="
+            email?.touched ? (email?.valid ? 'is-valid' : 'is-invalid') : ''
+          "
+          id="email"
+          placeholder="email@email.es"
+          formControlName="email"
+        />
+        <label for="email">{{ "auth.email" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="email?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="email?.errors?.['email']">
+          {{ "auth.validation.email" | translate }}
+        </div>
+      </div>
       <!-- nombre -->
       <div class="form-floating mb-3">
         <input
@@ -66,28 +87,7 @@
       </div>
     </div>
     <!-- columna derecha -->
-    <div class="col-lg-6">
-      <!-- email -->
-      <div class="form-floating mb-3">
-        <input
-          type="email"
-          class="form-control"
-          [ngClass]="
-            email?.touched ? (email?.valid ? 'is-valid' : 'is-invalid') : ''
-          "
-          id="email"
-          placeholder="email@email.es"
-          formControlName="email"
-        />
-        <label for="email">{{ "auth.email" | translate }}</label>
-        <!-- validaciones -->
-        <div class="invalid-feedback" *ngIf="email?.errors?.['required']">
-          {{ "auth.validation.required" | translate }}
-        </div>
-        <div class="invalid-feedback" *ngIf="email?.errors?.['email']">
-          {{ "auth.validation.email" | translate }}
-        </div>
-      </div>
+    <div class="col-lg-6" formGroupName="passwords">
       <!-- contraseña -->
       <div class="form-floating mb-3">
         <input
@@ -95,7 +95,7 @@
           class="form-control"
           [ngClass]="
             password?.touched
-              ? password?.valid
+              ? passwords?.valid
                 ? 'is-valid'
                 : 'is-invalid'
               : ''
@@ -109,6 +109,14 @@
         <div class="invalid-feedback" *ngIf="password?.errors?.['required']">
           {{ "auth.validation.required" | translate }}
         </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="passwords?.errors?.['noMatchPassword']"
+        >
+          {{ "auth.validation.noMatchPassword" | translate }}
+        </div>
+
         <div class="invalid-feedback" *ngIf="password?.errors?.['minlength']">
           {{ "auth.validation.minlength" | translate }}
           {{ password?.errors?.['minlength']?.requiredLength }}
@@ -120,6 +128,57 @@
           {{ password?.errors?.['maxlength']?.requiredLength }}
           {{ "auth.validation.minlength2" | translate }}
           [{{ password?.errors?.['maxlength']?.actualLength }}]
+        </div>
+      </div>
+      <!-- confirmar contraseña -->
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="
+            password_confirmation?.touched
+              ? passwords?.valid
+                ? 'is-valid'
+                : 'is-invalid'
+              : ''
+          "
+          id="password_confirmation"
+          placeholder="********"
+          formControlName="password_confirmation"
+        />
+        <label for="password_confirmation">{{
+          "auth.password_confirmation" | translate
+        }}</label>
+        <!-- validaciones -->
+        <div
+          class="invalid-feedback"
+          *ngIf="password_confirmation?.errors?.['required']"
+        >
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="passwords?.errors?.['noMatchPassword']"
+        >
+          {{ "auth.validation.noMatchPassword" | translate }}
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="password_confirmation?.errors?.['minlength']"
+        >
+          {{ "auth.validation.minlength" | translate }}
+          {{ password_confirmation?.errors?.['minlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password_confirmation?.errors?.['minlength']?.actualLength }}]
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="password_confirmation?.errors?.['maxlength']"
+        >
+          {{ "auth.validation.maxlength" | translate }}
+          {{ password_confirmation?.errors?.['maxlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password_confirmation?.errors?.['maxlength']?.actualLength }}]
         </div>
       </div>
     </div>
