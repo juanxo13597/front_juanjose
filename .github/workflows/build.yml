@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: NodeJS
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
 
     - name: install dependencies
       run: npm install
-      
+
     - name: lint
       run: npm run lint
 
