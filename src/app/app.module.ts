@@ -17,6 +17,7 @@ import { ChangeTranslateComponent } from './components/change-translate/change-t
 import { SharedModule } from './shared/shared.module';
 import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
+import { AccessTokenInterceptor } from './shared/interceptors/access-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,11 @@ import { LoadingInterceptor } from './shared/components/loading/loading.intercep
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AccessTokenInterceptor,
       multi: true,
     },
   ],

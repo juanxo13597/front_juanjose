@@ -42,4 +42,8 @@ describe('AuthService', () => {
 
     expect(service.login(user)).toBeTruthy();
   });
+
+  it('getToken', () => {
+    expect(service.getToken()).toBeTruthy();
+  });
 });

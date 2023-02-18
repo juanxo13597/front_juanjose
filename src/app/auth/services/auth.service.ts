@@ -12,6 +12,7 @@ import { AuthHttpService } from './auth-http.service';
   providedIn: 'root',
 })
 export class AuthService {
+  /** token */
   private access_token: string;
 
   /** constructor */
@@ -40,5 +41,10 @@ export class AuthService {
   setToken(token: string): void {
     this.access_token = token;
     localStorage.setItem('access_token', token);
+  }
+
+  /** get token */
+  getToken(): string {
+    return this.access_token;
   }
 }
