@@ -75,6 +75,45 @@ describe('RegisterComponent', () => {
     expect(surnameEL.classList.contains('ng-valid')).toBeTrue();
   });
 
+  it('register all success validation errors', () => {
+    component.registerForm.patchValue({
+      name: 'test',
+      surname: 'test',
+      email: 'emailemail.es',
+      passwords: {
+        password: '123456',
+        password_confirmation: '123456',
+      },
+    });
+
+    fixture.detectChanges();
+
+    expect(component.registerForm.valid).toBeFalse();
+
+    const emailEL: HTMLElement = fixture.nativeElement.querySelector('#email');
+
+    expect(emailEL.classList.contains('ng-invalid')).toBeTrue();
+
+    const passwordEL: HTMLElement =
+      fixture.nativeElement.querySelector('#password');
+
+    expect(passwordEL.classList.contains('ng-valid')).toBeTrue();
+
+    const passwordConfirmationEL: HTMLElement =
+      fixture.nativeElement.querySelector('#password_confirmation');
+
+    expect(passwordConfirmationEL.classList.contains('ng-valid')).toBeTrue();
+
+    const nameEL: HTMLElement = fixture.nativeElement.querySelector('#name');
+
+    expect(nameEL.classList.contains('ng-valid')).toBeTrue();
+
+    const surnameEL: HTMLElement =
+      fixture.nativeElement.querySelector('#surname');
+
+    expect(surnameEL.classList.contains('ng-valid')).toBeTrue();
+  });
+
   it('register all success logic', () => {
     jasmine.clock().install();
     spyOn(component.registerForm, 'reset').and.callThrough();
