@@ -4,3 +4,4 @@ dist
 index.html
 documentation
 node_modules
+karma.conf.js
