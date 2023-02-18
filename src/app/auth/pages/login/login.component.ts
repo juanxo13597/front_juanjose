@@ -52,6 +52,7 @@ export class LoginComponent {
       this.state.send = true;
       this.state.error = false;
       this.state.message = 'auth.response.loginOK';
+      this.AuthService.setToken(response.access_token);
     }
 
     setTimeout(() => {

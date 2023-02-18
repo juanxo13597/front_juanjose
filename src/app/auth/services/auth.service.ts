@@ -12,12 +12,17 @@ import { AuthHttpService } from './auth-http.service';
   providedIn: 'root',
 })
 export class AuthService {
+  private access_token: string;
+
   /** constructor */
   constructor(
     private AuthHttpService: AuthHttpService,
     private RegisterTransformer: RegisterTransformer,
     private LoginTransformer: LoginTransformer
-  ) {}
+  ) {
+    this.access_token = localStorage.getItem('access_token') || '';
+    console.log(this.access_token);
+  }
 
   /** register */
   register(user: registerModelFB): Observable<registerModelResponse> {
@@ -29,5 +34,11 @@ export class AuthService {
   login(user: loginModelFB): Observable<loginModelResponse> {
     const userTransform = this.LoginTransformer.transform(user);
     return this.AuthHttpService.login(userTransform);
+  }
+
+  /** set token localstorage */
+  setToken(token: string): void {
+    this.access_token = token;
+    localStorage.setItem('access_token', token);
   }
 }
