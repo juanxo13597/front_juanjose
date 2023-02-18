@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { AccessTokenInterceptor } from './access-token.interceptor';
 
 describe('AccessTokenInterceptor', () => {
-  let interceptor: AccessTokenInterceptor;
   let authService: AuthService;
   let httpMock: HttpTestingController;
   let http: HttpClient;
@@ -26,7 +25,6 @@ describe('AccessTokenInterceptor', () => {
         },
       ],
     });
-    interceptor = TestBed.inject(AccessTokenInterceptor);
     authService = TestBed.inject(AuthService);
     httpMock = TestBed.inject(HttpTestingController);
     http = TestBed.inject(HttpClient);
