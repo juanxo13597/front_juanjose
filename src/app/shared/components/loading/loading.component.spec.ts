@@ -19,21 +19,4 @@ describe('LoadingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should have text-dark class by default', () => {
-    const loadingEl: HTMLElement =
-      fixture.nativeElement.querySelector('.spinner-grow');
-
-    expect(loadingEl.classList.contains('text-dark')).toBeTrue();
-  });
-
-  it('should have text-primary class when color is set to primary', () => {
-    component.color = 'primary';
-    fixture.detectChanges();
-
-    const loadingEl: HTMLElement =
-      fixture.nativeElement.querySelector('.spinner-grow');
-
-    expect(loadingEl.classList.contains('text-primary')).toBeTrue();
-  });
 });

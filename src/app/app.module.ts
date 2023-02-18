@@ -1,5 +1,9 @@
 import { environment } from './../environments/environment';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -12,6 +16,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
 import { SharedModule } from './shared/shared.module';
 import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
+import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,13 @@ import { MainMenuRightComponent } from './components/main-menu-right/main-menu-r
       },
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   exports: [TranslateModule],
 })

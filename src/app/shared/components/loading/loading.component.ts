@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { LoadingService } from './loading.service';
+import { Component } from '@angular/core';
 
 /** componente de loading */
 @Component({
@@ -7,6 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent {
-  /** color del loading */
-  @Input() color = 'dark';
+  /** loading subjet */
+  isLoading$ = this.LoadingService.isLoading$;
+
+  /** constructor */
+  constructor(private readonly LoadingService: LoadingService) {}
 }
