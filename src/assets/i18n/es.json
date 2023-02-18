@@ -16,7 +16,7 @@
     "surname": "Apellidos",
     "email": "Email",
     "password": "Contraseña",
-    "password_confirmation":"Confirmar Contraseña",
+    "password_confirmation": "Confirmar Contraseña",
     "register": "Registrar",
     "validation": {
       "required": "El campo es requerido.",
@@ -26,10 +26,13 @@
       "email": "El campo debe de ser de tipo email",
       "noMatchPassword": "Las contraseñas no coinciden"
     },
-    "response":{
+    "response": {
       "registerOK": "Registro exitoso",
       "emailExists": "El email ya existe",
-      "passwordsNotMatch": "Las contraseñas no coinciden"
-    }
+      "passwordsNotMatch": "Las contraseñas no coinciden",
+      "loginOK": "Login exitoso",
+      "loginError": "Error al iniciar sesión"
+    },
+    "login": "Iniciar sesión"
   }
 }

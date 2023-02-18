@@ -1,1 +1,77 @@
-<p>login works!</p>
+<!-- registro con bootstrap 5 -->
+
+<div class="container">
+  <app-alert
+    *ngIf="state.send"
+    [text]="state.message | translate"
+    [color]="state.error ? 'danger' : 'success'"
+  ></app-alert>
+  <form class="row" [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="col-lg-6 mx-auto">
+      <!-- email -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          autocomplete="email"
+          [ngClass]="
+            email?.touched ? (email?.valid ? 'is-valid' : 'is-invalid') : ''
+          "
+          id="email"
+          placeholder="email@email.es"
+          formControlName="email"
+        />
+        <label for="email">{{ "auth.email" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="email?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="email?.errors?.['email']">
+          {{ "auth.validation.email" | translate }}
+        </div>
+      </div>
+      <!-- password -->
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="password"
+          [ngClass]="
+            password?.touched
+              ? password?.valid
+                ? 'is-valid'
+                : 'is-invalid'
+              : ''
+          "
+          placeholder="********"
+          formControlName="password"
+        />
+        <label for="password">{{ "auth.password" | translate }}</label>
+        <!-- validaciones -->
+        <div class="invalid-feedback" *ngIf="password?.errors?.['required']">
+          {{ "auth.validation.required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="password?.errors?.['minlength']">
+          {{ "auth.validation.minlength" | translate }}
+          {{ password?.errors?.['minlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password?.errors?.['minlength']?.actualLength }}]
+        </div>
+        <div class="invalid-feedback" *ngIf="password?.errors?.['maxlength']">
+          {{ "auth.validation.maxlength" | translate }}
+          {{ password?.errors?.['maxlength']?.requiredLength }}
+          {{ "auth.validation.minlength2" | translate }}
+          [{{ password?.errors?.['maxlength']?.actualLength }}]
+        </div>
+      </div>
+      <button
+        class="btn btn-primary d-block mx-auto col-sm-6"
+        type="submit"
+        id="registerSubmit"
+        [disabled]="!loginForm.valid"
+      >
+        {{ "auth.login" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

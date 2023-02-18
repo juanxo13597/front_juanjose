@@ -16,7 +16,7 @@
     "surname": "Surname",
     "email": "E-mail",
     "password": "Password",
-    "password_confirmation":"Password confirmation",
+    "password_confirmation": "Password confirmation",
     "register": "Register",
     "validation": {
       "required": "The field is required.",
@@ -26,10 +26,13 @@
       "email": "The field must be of type email",
       "noMatchPassword": "The passwords do not match"
     },
-    "response":{
+    "response": {
       "registerOK": "The user has been registered successfully",
       "emailExists": "The email already exists",
-      "passwordsNotMatch": "The passwords do not match"
-    }
+      "passwordsNotMatch": "The passwords do not match",
+      "loginOK": "The user has been logged in successfully",
+      "loginError": "The user or password is incorrect"
+    },
+    "login": "Log in"
   }
 }
