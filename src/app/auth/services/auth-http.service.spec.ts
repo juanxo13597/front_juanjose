@@ -59,4 +59,28 @@ describe('AuthHttpService', () => {
       updated_at: date,
     });
   });
+
+  it('send data login', (done: DoneFn) => {
+    service
+      .login({
+        email: 'email',
+        password: 'password',
+      })
+      .subscribe({
+        next: (data) => {
+          expect(data).toEqual({
+            access_token: 'access_token',
+          });
+          done();
+        },
+      });
+
+    const req = httpTestingController.expectOne('/api/auth/login');
+
+    expect(req.request.method).toEqual('POST');
+
+    req.flush({
+      access_token: 'access_token',
+    });
+  });
 });

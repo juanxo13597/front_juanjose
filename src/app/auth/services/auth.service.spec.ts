@@ -33,4 +33,13 @@ describe('AuthService', () => {
 
     expect(service.register(user)).toBeTruthy();
   });
+
+  it('login', () => {
+    const user = new FormGroup({
+      email: new FormControl('email'),
+      password: new FormControl('password'),
+    });
+
+    expect(service.login(user)).toBeTruthy();
+  });
 });

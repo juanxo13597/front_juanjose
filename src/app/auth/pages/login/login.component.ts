@@ -1,3 +1,4 @@
+import { loginModelResponse } from './../../models/login.model';
 import { constants } from 'src/app/shared/constants/constants';
 import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
@@ -31,27 +32,31 @@ export class LoginComponent {
   submit(): void {
     this.AuthService.login(this.loginForm).subscribe({
       next: (response) => {
-        console.log(response);
-        if (
-          response.status === 401 &&
-          response.message === 'Email or password incorrect'
-        ) {
-          this.state.send = true;
-          this.state.error = true;
-          this.state.message = 'auth.response.loginError';
-        }
-
-        if (response.access_token) {
-          this.state.send = true;
-          this.state.error = false;
-          this.state.message = 'auth.response.loginOK';
-        }
-
-        setTimeout(() => {
-          this.resetForm();
-        }, constants.setTimeOut);
+        this.manageState(response);
       },
     });
+  }
+
+  /** manage state */
+  manageState(response: loginModelResponse): void {
+    if (
+      response.status === 401 &&
+      response.message === 'Email or password incorrect'
+    ) {
+      this.state.send = true;
+      this.state.error = true;
+      this.state.message = 'auth.response.loginError';
+    }
+
+    if (response.access_token) {
+      this.state.send = true;
+      this.state.error = false;
+      this.state.message = 'auth.response.loginOK';
+    }
+
+    setTimeout(() => {
+      this.resetForm();
+    }, constants.setTimeOut);
   }
 
   /** resetea el formulario */
