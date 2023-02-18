@@ -131,10 +131,13 @@ describe('RegisterComponent', () => {
     component.submit();
 
     expect(service.register).toHaveBeenCalled();
+    expect(component.state.send).toEqual(true);
 
     setTimeout(() => {
       expect(component.registerForm.reset).toHaveBeenCalled();
+      expect(component.state.send).toEqual(false);
     }, constants.setTimeOut + 1000);
+
     jasmine.clock().tick(10000);
     jasmine.clock().uninstall();
   });
