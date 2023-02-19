@@ -36,5 +36,10 @@
       "loginError": "The user or password is incorrect"
     },
     "login": "Log in"
+  },
+  "close": "Close",
+  "modalLogout": {
+    "title": "Are you sure to go out?",
+    "body": "If you accept you will lose access for authorized users."
   }
 }

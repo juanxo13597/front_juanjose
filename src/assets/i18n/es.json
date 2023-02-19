@@ -36,5 +36,10 @@
       "loginError": "Error al iniciar sesión"
     },
     "login": "Iniciar sesión"
+  },
+  "close": "Cerrar",
+  "modalLogout": {
+    "title": "¿Estás seguro de salir?",
+    "body": "Si aceptas perderas acceso para usuarios autorizados."
   }
 }
