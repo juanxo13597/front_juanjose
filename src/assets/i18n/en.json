@@ -6,7 +6,9 @@
       "register": "Register",
       "logout": "Logout",
       "profile": "Profile"
-    }
+    },
+    "admin": "Administration",
+    "developments": "Developments"
   },
   "lenguage": "language:",
   "opps": "Oops!",
