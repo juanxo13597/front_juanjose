@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from './app.service';
+import { languages } from './shared/constants/constants';
 
 /** componente root */
 @Component({
@@ -17,7 +18,7 @@ export class AppComponent {
     private translate: TranslateService,
     private appService: AppService
   ) {
-    this.translate.addLangs(['es', 'en']);
+    this.translate.addLangs(languages);
     this.translate.setDefaultLang('es');
 
     this.isBackActive();

@@ -7,6 +7,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { constants } from '../constants/constants';
 
 @Injectable()
 export class AccessTokenInterceptor implements HttpInterceptor {
@@ -17,7 +18,7 @@ export class AccessTokenInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const token = this.AuthService.getToken();
-    if (token && token !== '') {
+    if (token && token !== '' && !this.noTokenRoutes(request.url)) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
@@ -26,5 +27,10 @@ export class AccessTokenInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request);
+  }
+
+  /** rutas sin token */
+  private noTokenRoutes(url: string): boolean {
+    return url.search(constants.routesOutToken.join('|')) > -1;
   }
 }
