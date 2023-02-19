@@ -22,7 +22,6 @@ export class AuthService {
     private LoginTransformer: LoginTransformer
   ) {
     this.access_token = localStorage.getItem('access_token') || '';
-    console.log(this.access_token);
   }
 
   /** register */
