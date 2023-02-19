@@ -22,8 +22,8 @@ export type stateLoginModel = {
 
 /** modelo de respuesta login */
 export type loginModelResponse = {
-  access_token: string;
-  user: user;
+  access_token?: string;
+  user?: user;
 
   response?: string;
   status?: number;

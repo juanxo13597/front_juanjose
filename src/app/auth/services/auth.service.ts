@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { user } from 'src/app/app.model';
 import { registerModelFB } from '../models/register.model';
 import { RegisterTransformer } from '../transformers/register-transformer';
@@ -18,14 +18,18 @@ export class AuthService {
   private access_token: BehaviorSubject<string> = new BehaviorSubject<string>(
     ''
   );
+  /** token observable */
   access_token$ = this.access_token.asObservable();
+  /** user */
   private user: BehaviorSubject<user> = new BehaviorSubject<user>({
     id: 0,
     name: '',
+    surname: '',
     email: '',
-    updated_at: '',
-    created_at: '',
+    updated_at: new Date(),
+    created_at: new Date(),
   });
+  /** user observable */
   user$ = this.user.asObservable();
 
   /** constructor */
@@ -77,9 +81,10 @@ export class AuthService {
     this.user.next({
       id: 0,
       name: '',
+      surname: '',
       email: '',
-      updated_at: '',
-      created_at: '',
+      updated_at: new Date(),
+      created_at: new Date(),
     });
     localStorage.removeItem('access_token');
 

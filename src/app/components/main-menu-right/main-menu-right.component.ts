@@ -10,7 +10,14 @@ import { Component } from '@angular/core';
 })
 export class MainMenuRightComponent {
   /** user */
-  user: user = { id: 0, name: '', email: '', updated_at: '', created_at: '' };
+  user: user = {
+    id: 0,
+    name: '',
+    email: '',
+    updated_at: new Date(),
+    created_at: new Date(),
+    surname: '',
+  };
 
   /** constructor */
   constructor(private AuthService: AuthService) {

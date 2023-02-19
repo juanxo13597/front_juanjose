@@ -8,7 +8,8 @@ export type appModel = {
 export type user = {
   id: number;
   name: string;
+  surname: string;
   email: string;
-  created_at: string;
-  updated_at: string;
+  created_at: Date;
+  updated_at: Date;
 };

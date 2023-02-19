@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 
 describe('AppComponent', () => {
   let service: AppService;
+  const date = new Date();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,9 +39,10 @@ describe('AppComponent', () => {
         user: {
           id: 1,
           name: 'name',
+          surname: 'surname',
           email: 'email@email.es',
-          created_at: '',
-          updated_at: '',
+          updated_at: date,
+          created_at: date,
         },
       })
     );

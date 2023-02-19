@@ -54,7 +54,7 @@ export class LoginComponent {
       this.state.error = false;
       this.state.message = 'auth.response.loginOK';
       this.AuthService.setToken(response.access_token);
-      this.AuthService.setUser(response.user);
+      this.AuthService.setUser(response.user || this.AuthService.getUser());
       this.Router.navigate(['/']);
     }
 
