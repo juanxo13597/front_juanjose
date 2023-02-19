@@ -1,7 +1,6 @@
-import { LoadingService } from './shared/components/loading/loading.service';
-import { AuthService } from '../app/auth/services/auth.service';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../app/auth/services/auth.service';
 import { AppService } from './app.service';
 import { languages } from './shared/constants/constants';
 
