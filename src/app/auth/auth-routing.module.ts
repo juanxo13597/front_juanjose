@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from '../pages/error404/error404.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from '../shared/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
@@ -11,11 +11,13 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthGuard],
+    data: { auth: true },
   },
   {
     path: 'register',
     component: RegisterComponent,
     canActivate: [AuthGuard],
+    data: { auth: true },
   },
   {
     path: '**',
