@@ -1,1 +1,1 @@
-empezar a hacer el login
+MOSTRAR MENSAJE SI BACKEND NO RESPONDE EL INIT
