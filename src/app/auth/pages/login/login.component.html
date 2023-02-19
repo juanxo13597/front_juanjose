@@ -33,9 +33,10 @@
       <!-- password -->
       <div class="form-floating mb-3">
         <input
-          type="text"
+          type="password"
           class="form-control"
           id="password"
+          autocomplete="current-password"
           [ngClass]="
             password?.touched
               ? password?.valid

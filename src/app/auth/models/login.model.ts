@@ -1,3 +1,4 @@
+import { user } from 'src/app/app.model';
 import { FormControl, FormGroup } from '@angular/forms';
 
 /** modelo de registro para formularios */
@@ -21,7 +22,8 @@ export type stateLoginModel = {
 
 /** modelo de respuesta login */
 export type loginModelResponse = {
-  access_token: string;
+  access_token?: string;
+  user?: user;
 
   response?: string;
   status?: number;
