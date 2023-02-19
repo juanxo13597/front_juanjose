@@ -4,6 +4,7 @@ import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { loginModelFB, stateLoginModel } from '../../models/login.model';
+import { Router } from '@angular/router';
 
 /** pagina de login */
 @Component({
@@ -13,7 +14,7 @@ import { loginModelFB, stateLoginModel } from '../../models/login.model';
 })
 export class LoginComponent {
   /** constructor */
-  constructor(private AuthService: AuthService) {}
+  constructor(private AuthService: AuthService, private Router: Router) {}
 
   /** formulario de login */
   loginForm: loginModelFB = new FormGroup({
@@ -53,6 +54,8 @@ export class LoginComponent {
       this.state.error = false;
       this.state.message = 'auth.response.loginOK';
       this.AuthService.setToken(response.access_token);
+      this.AuthService.setUser(response.user);
+      this.Router.navigate(['/']);
     }
 
     setTimeout(() => {

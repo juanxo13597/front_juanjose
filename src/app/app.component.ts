@@ -1,3 +1,4 @@
+import { LoadingService } from './shared/components/loading/loading.service';
 import { AuthService } from '../app/auth/services/auth.service';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,6 +12,9 @@ import { languages } from './shared/constants/constants';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  /** loading */
+  loading = true;
+
   /** constructor */
   constructor(
     private translate: TranslateService,
@@ -29,6 +33,7 @@ export class AppComponent {
       if (res.user) {
         this.AuthService.setUser(res.user);
       }
+      this.loading = false;
     });
   }
 }

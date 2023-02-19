@@ -3,7 +3,9 @@
     "home": "Inicio",
     "right": {
       "login": "Iniciar Sesión",
-      "register": "Registrarse"
+      "register": "Registrarse",
+      "logout": "Salir",
+      "profile": "Perfil"
     }
   },
   "lenguage": "Lenguaje:",

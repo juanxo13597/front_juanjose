@@ -3,7 +3,9 @@
     "home": "Home",
     "right": {
       "login": "Log in",
-      "register": "Register"
+      "register": "Register",
+      "logout": "Logout",
+      "profile": "Profile"
     }
   },
   "lenguage": "language:",

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { user } from 'src/app/app.model';
 import { registerModelFB } from '../models/register.model';
 import { RegisterTransformer } from '../transformers/register-transformer';
@@ -14,22 +15,27 @@ import { AuthHttpService } from './auth-http.service';
 })
 export class AuthService {
   /** token */
-  private access_token: string;
-  private user: user = {
+  private access_token: BehaviorSubject<string> = new BehaviorSubject<string>(
+    ''
+  );
+  access_token$ = this.access_token.asObservable();
+  private user: BehaviorSubject<user> = new BehaviorSubject<user>({
     id: 0,
     name: '',
     email: '',
-    created_at: '',
     updated_at: '',
-  };
+    created_at: '',
+  });
+  user$ = this.user.asObservable();
 
   /** constructor */
   constructor(
     private AuthHttpService: AuthHttpService,
     private RegisterTransformer: RegisterTransformer,
-    private LoginTransformer: LoginTransformer
+    private LoginTransformer: LoginTransformer,
+    private Router: Router
   ) {
-    this.access_token = localStorage.getItem('access_token') || '';
+    this.access_token.next(localStorage.getItem('access_token') || '');
   }
 
   /** register */
@@ -46,22 +52,37 @@ export class AuthService {
 
   /** set token localstorage */
   setToken(token: string): void {
-    this.access_token = token;
+    this.access_token.next(token);
     localStorage.setItem('access_token', token);
   }
 
   /** get token */
   getToken(): string {
-    return this.access_token;
+    return this.access_token.getValue();
   }
 
   /** set user */
   setUser(user: user): void {
-    this.user = user;
+    this.user.next(user);
   }
 
   /** get user */
   getUser(): user {
-    return this.user;
+    return this.user.getValue();
+  }
+
+  /** logout */
+  logout(): void {
+    this.access_token.next('');
+    this.user.next({
+      id: 0,
+      name: '',
+      email: '',
+      updated_at: '',
+      created_at: '',
+    });
+    localStorage.removeItem('access_token');
+
+    this.Router.navigate(['/']);
   }
 }

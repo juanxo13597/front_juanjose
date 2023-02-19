@@ -1,4 +1,6 @@
 <app-loading color="blue"></app-loading>
 
-<app-main-menu></app-main-menu>
-<router-outlet></router-outlet>
+<ng-container *ngIf="!loading">
+  <app-main-menu></app-main-menu>
+  <router-outlet></router-outlet>
+</ng-container>
