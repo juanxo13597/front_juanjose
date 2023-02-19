@@ -43,5 +43,12 @@
   "modalLogout": {
     "title": "¿Estás seguro de salir?",
     "body": "Si aceptas perderas acceso para usuarios autorizados."
+  },
+  "ver": "Ver",
+  "developments": {
+    "1": {
+      "title": "Desarrollo 1",
+      "description":"description 1"
+    }
   }
 }

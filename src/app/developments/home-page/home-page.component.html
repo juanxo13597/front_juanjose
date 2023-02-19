@@ -1,1 +1,17 @@
-<p>home-page works! DEVELOPPPP</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mb-3" *ngFor="let dev of developments">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ dev.title | translate }}</h5>
+          <p class="card-text">
+            {{ dev.description | translate | slice : 0 : 100 }}
+          </p>
+          <a role="button" routerLink="{{ dev.url }}" class="btn btn-primary">{{
+            "ver" | translate
+          }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
