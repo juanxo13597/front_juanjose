@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { user } from 'src/app/app.model';
 import { registerModelFB } from '../models/register.model';
 import { RegisterTransformer } from '../transformers/register-transformer';
 import { loginModelFB, loginModelResponse } from './../models/login.model';
@@ -14,6 +15,13 @@ import { AuthHttpService } from './auth-http.service';
 export class AuthService {
   /** token */
   private access_token: string;
+  private user: user = {
+    id: 0,
+    name: '',
+    email: '',
+    created_at: '',
+    updated_at: '',
+  };
 
   /** constructor */
   constructor(
@@ -45,5 +53,15 @@ export class AuthService {
   /** get token */
   getToken(): string {
     return this.access_token;
+  }
+
+  /** set user */
+  setUser(user: user): void {
+    this.user = user;
+  }
+
+  /** get user */
+  getUser(): user {
+    return this.user;
   }
 }

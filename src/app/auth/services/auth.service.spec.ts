@@ -46,4 +46,17 @@ describe('AuthService', () => {
   it('getToken', () => {
     expect(service.getToken()).toBeTruthy();
   });
+
+  it('setUser', () => {
+    const user = {
+      id: 0,
+      name: '',
+      email: '',
+      created_at: '',
+      updated_at: '',
+    };
+    service.setUser(user);
+
+    expect(service.getUser()).toEqual(user);
+  });
 });

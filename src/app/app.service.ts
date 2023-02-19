@@ -3,6 +3,7 @@ import { environment } from './../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { appModel } from './app.model';
 
 /** servicio principal */
 @Injectable({
@@ -13,7 +14,7 @@ export class AppService {
   constructor(private http: HttpClient, private AuthService: AuthService) {}
 
   /** primera llamada a back */
-  init(): Observable<boolean> {
-    return this.http.get<boolean>(environment.api + 'init');
+  init(): Observable<appModel> {
+    return this.http.get<appModel>(environment.api + 'init');
   }
 }

@@ -1,3 +1,4 @@
+import { AuthService } from '../app/auth/services/auth.service';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from './app.service';
@@ -10,13 +11,11 @@ import { languages } from './shared/constants/constants';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  /** loading app */
-  loading = true;
-
   /** constructor */
   constructor(
     private translate: TranslateService,
-    private appService: AppService
+    private appService: AppService,
+    private AuthService: AuthService
   ) {
     this.translate.addLangs(languages);
     this.translate.setDefaultLang('es');
@@ -26,10 +25,10 @@ export class AppComponent {
 
   /** comprobar si back esta activo */
   isBackActive() {
-    this.appService.init().subscribe({
-      next: () => {
-        this.loading = false;
-      },
+    this.appService.init().subscribe((res) => {
+      if (res.user) {
+        this.AuthService.setUser(res.user);
+      }
     });
   }
 }

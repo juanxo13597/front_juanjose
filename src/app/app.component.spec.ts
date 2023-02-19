@@ -32,13 +32,22 @@ describe('AppComponent', () => {
   it('should call back init', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    spyOn(service, 'init').and.returnValue(of(true));
+    spyOn(service, 'init').and.returnValue(
+      of({
+        status: true,
+        user: {
+          id: 1,
+          name: 'name',
+          email: 'email@email.es',
+          created_at: '',
+          updated_at: '',
+        },
+      })
+    );
 
     app.isBackActive();
 
     // eslint-disable-next-line jasmine/prefer-toHaveBeenCalledWith
     expect(service.init).toHaveBeenCalled();
-
-    expect(app.loading).toEqual(false);
   });
 });
