@@ -61,4 +61,23 @@ describe('AccessTokenInterceptor', () => {
 
     expect(httpRequest.request.headers.has('Authorization')).toBeFalse();
   });
+
+  it('should handle errors', () => {
+    spyOn(authService, 'getToken').and.returnValue('abc123');
+
+    const url = 'https://api.example.com/data';
+
+    http.get(url).subscribe({
+      error: (err) => {
+        expect(err.status).toEqual(401);
+      },
+    });
+
+    const httpRequest = httpMock.expectOne(url);
+
+    httpRequest.flush('Unauthorized', {
+      status: 401,
+      statusText: 'Unauthorized',
+    });
+  });
 });
