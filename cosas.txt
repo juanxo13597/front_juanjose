@@ -1,1 +1,1 @@
-MOSTRAR MENSAJE SI BACKEND NO RESPONDE EL INIT
+agregar explicacion en homepage y en todolist

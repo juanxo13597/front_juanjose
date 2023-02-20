@@ -24,6 +24,27 @@
             >{{ "main-menu.home" | translate }}</a
           >
         </li>
+        <ng-container *ngIf="user.id !== 0">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/developments"
+              routerLinkActive="active"
+              >{{ "main-menu.developments" | translate }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/admin"
+              routerLinkActive="active"
+              >{{ "main-menu.admin" | translate }} [actualizar para solo
+              admin]</a
+            >
+          </li>
+        </ng-container>
       </ul>
       <app-main-menu-right></app-main-menu-right>
     </div>

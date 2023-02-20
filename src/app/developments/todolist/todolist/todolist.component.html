@@ -1,0 +1,34 @@
+<div class="container">
+  <form class="input-group mb-3" [formGroup]="formTask">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      id="button-addon1"
+      (click)="addTask()"
+      [disabled]="!formTask.valid"
+    >
+      {{ "todolits.addTask" | translate }}
+    </button>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="basic-addon1"
+      formControlName="taskInput"
+      #taskInput
+      (keydown)="onKeydown($event)"
+    />
+  </form>
+  <ul class="list-group" *ngFor="let task of tasks; let i = index">
+    <li class="list-group-item">
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="removeTask(i)"
+      ></button>
+      {{ task }}
+    </li>
+  </ul>
+</div>
+
+explicacion (en otro componente)

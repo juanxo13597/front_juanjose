@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/services/auth.service';
 import { environment } from './../../../environments/environment';
 import { Component } from '@angular/core';
 
@@ -10,4 +11,14 @@ import { Component } from '@angular/core';
 export class MainMenuComponent {
   /** info de la aplicacion */
   public info = environment.info;
+
+  /** user */
+  public user = this.AuthService.getUser();
+
+  /** constructor */
+  constructor(private AuthService: AuthService) {
+    this.AuthService.user$.subscribe((user) => {
+      this.user = user;
+    });
+  }
 }

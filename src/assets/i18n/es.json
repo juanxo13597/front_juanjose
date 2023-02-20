@@ -6,7 +6,9 @@
       "register": "Registrarse",
       "logout": "Salir",
       "profile": "Perfil"
-    }
+    },
+    "admin": "Administracion",
+    "developments": "Desarrollos"
   },
   "lenguage": "Lenguaje:",
   "opps": "Oops!",
@@ -36,5 +38,20 @@
       "loginError": "Error al iniciar sesión"
     },
     "login": "Iniciar sesión"
+  },
+  "close": "Cerrar",
+  "modalLogout": {
+    "title": "¿Estás seguro de salir?",
+    "body": "Si aceptas perderas acceso para usuarios autorizados."
+  },
+  "ver": "Ver",
+  "developments": {
+    "1": {
+      "title": "to do list",
+      "description": "Aplicación web para la gestión de tareas pendientes."
+    }
+  },
+  "todolits": {
+    "addTask": "Agregar tarea:"
   }
 }

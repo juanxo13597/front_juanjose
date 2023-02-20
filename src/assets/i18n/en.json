@@ -6,7 +6,9 @@
       "register": "Register",
       "logout": "Logout",
       "profile": "Profile"
-    }
+    },
+    "admin": "Administration",
+    "developments": "Developments"
   },
   "lenguage": "language:",
   "opps": "Oops!",
@@ -36,5 +38,20 @@
       "loginError": "The user or password is incorrect"
     },
     "login": "Log in"
+  },
+  "close": "Close",
+  "modalLogout": {
+    "title": "Are you sure to go out?",
+    "body": "If you accept you will lose access for authorized users."
+  },
+  "ver": "See",
+  "developments": {
+    "1": {
+      "title": "to do list",
+      "description": "This is a simple to do list, where you can add, edit and delete tasks."
+    }
+  },
+  "todolits": {
+    "addTask": "Add task:"
   }
 }

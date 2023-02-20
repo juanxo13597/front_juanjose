@@ -14,8 +14,6 @@ describe('AuthService', () => {
   const date = new Date();
   let access_token: BehaviorSubject<string>;
   let user: BehaviorSubject<any>;
-  let localStorageSpy: jasmine.SpyObj<Storage>;
-  let routerSpy: jasmine.SpyObj<any>;
 
   beforeEach(() => {
     access_token = new BehaviorSubject<string>('token');
@@ -27,10 +25,6 @@ describe('AuthService', () => {
       updated_at: date,
       created_at: date,
     });
-
-    localStorageSpy = jasmine.createSpyObj('localStorage', ['removeItem']);
-
-    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
@@ -67,7 +61,9 @@ describe('AuthService', () => {
   });
 
   it('getToken', () => {
-    expect(service.getToken()).toEqual('');
+    service.setToken('token');
+
+    expect(service.getToken()).toEqual('token');
   });
 
   it('setUser', () => {
@@ -96,9 +92,6 @@ describe('AuthService', () => {
       updated_at: date,
       created_at: date,
     });
-
-    // expect(localStorageSpy.removeItem).toHaveBeenCalledWith('access_token');
-    // expect(routerSpy.navigate).toHaveBeenCalledWith(['/']);
 
     tick();
   }));
