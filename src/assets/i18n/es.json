@@ -47,8 +47,11 @@
   "ver": "Ver",
   "developments": {
     "1": {
-      "title": "Desarrollo 1",
-      "description":"description 1"
+      "title": "to do list",
+      "description": "Aplicación web para la gestión de tareas pendientes."
     }
+  },
+  "todolits": {
+    "addTask": "Agregar tarea:"
   }
 }

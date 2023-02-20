@@ -1,1 +1,1 @@
-empezar a hacer el login
+agregar explicacion en homepage y en todolist

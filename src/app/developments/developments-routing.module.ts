@@ -9,6 +9,11 @@ const routes: Routes = [
     component: HomePageComponent,
   },
   {
+    path: 'todolist',
+    loadChildren: () =>
+      import('./todolist/todolist.module').then((m) => m.TodolistModule),
+  },
+  {
     path: '**',
     component: Error404Component,
   },

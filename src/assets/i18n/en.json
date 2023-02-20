@@ -47,8 +47,11 @@
   "ver": "See",
   "developments": {
     "1": {
-      "title": "Desarrollo 1",
-      "description":"description 1"
+      "title": "to do list",
+      "description": "This is a simple to do list, where you can add, edit and delete tasks."
     }
+  },
+  "todolits": {
+    "addTask": "Add task:"
   }
 }
