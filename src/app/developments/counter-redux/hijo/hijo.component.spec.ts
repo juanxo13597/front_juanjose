@@ -11,7 +11,6 @@ describe('HijoComponent', () => {
   let fixture: ComponentFixture<HijoComponent>;
   let store: Store<{ count: number }>;
   let storeSpy: jasmine.Spy;
-  const initialState = { count: 0 };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
