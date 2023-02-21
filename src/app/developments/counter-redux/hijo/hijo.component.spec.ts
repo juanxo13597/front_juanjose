@@ -1,4 +1,7 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from '../store/counter.reducer';
 
 import { HijoComponent } from './hijo.component';
 
@@ -8,9 +11,12 @@ describe('HijoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HijoComponent ]
-    })
-    .compileComponents();
+      imports: [
+        StoreModule.forRoot({ count: counterReducer }),
+        TranslateModule.forRoot(),
+      ],
+      declarations: [HijoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HijoComponent);
     component = fixture.componentInstance;

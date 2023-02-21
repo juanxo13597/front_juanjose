@@ -1,3 +1,4 @@
+/** model auth */
 export type authModel = {
   login: boolean;
   user?: {

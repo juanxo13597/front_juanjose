@@ -1,9 +1,7 @@
-import { StoreModule } from '@ngrx/store';
-import { Error404Component } from './../../pages/error404/error404.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Error404Component } from './../../pages/error404/error404.component';
 import { HijoComponent } from './hijo/hijo.component';
-import { counterReducer } from './store/counter.reducer';
 
 const routes: Routes = [
   {
@@ -17,10 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    StoreModule.forFeature('count', counterReducer),
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class CounterReduxRoutingModule {}
