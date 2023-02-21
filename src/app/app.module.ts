@@ -1,3 +1,4 @@
+import { authReducer } from './store/auth.reducer';
 import { environment } from './../environments/environment';
 import {
   HttpClient,
@@ -41,7 +42,7 @@ import { StoreModule } from '@ngrx/store';
         deps: [HttpClient],
       },
     }),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ auth: authReducer }),
   ],
   providers: [
     {

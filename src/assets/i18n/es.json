@@ -49,9 +49,19 @@
     "1": {
       "title": "to do list",
       "description": "Aplicación web para la gestión de tareas pendientes."
+    },
+    "2": {
+      "title": "contador redux",
+      "description": "simple contador con redux que incrementa, reduce o reinicia el contador"
     }
   },
   "todolits": {
     "addTask": "Agregar tarea:"
+  },
+  "counterRedux": {
+    "Increment": "Incrementar",
+    "current": "Contador actual:",
+    "Decrement": "Decrementar",
+    "Reset": "Reiniciar"
   }
 }
