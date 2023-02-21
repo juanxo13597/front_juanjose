@@ -1,0 +1,15 @@
+<div class="container text-center">
+  <button class="btn btn-primary" (click)="increment()">
+    {{ "counterRedux.Increment" | translate }}
+  </button>
+
+  <div>{{ "counterRedux.current" | translate }} {{ count$ | async }}</div>
+
+  <button class="btn btn-primary" (click)="decrement()">
+    {{ "counterRedux.Decrement" | translate }}
+  </button>
+
+  <button class="btn btn-danger" (click)="reset()">
+    {{ "counterRedux.Reset" | translate }}
+  </button>
+</div>

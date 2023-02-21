@@ -49,9 +49,19 @@
     "1": {
       "title": "to do list",
       "description": "This is a simple to do list, where you can add, edit and delete tasks."
+    },
+    "2": {
+      "title": "counter redux",
+      "description": "This is a simple counter, where you can increase, decrease and reset the counter."
     }
   },
   "todolits": {
     "addTask": "Add task:"
+  },
+  "counterRedux": {
+    "Increment": "Increase",
+    "current": "current counter:",
+    "Decrement": "decrease",
+    "Reset": "Restart"
   }
 }

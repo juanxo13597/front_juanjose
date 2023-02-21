@@ -1,3 +1,4 @@
+import { authReducer } from './store/auth.reducer';
 import { environment } from './../environments/environment';
 import {
   HttpClient,
@@ -18,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
 import { AccessTokenInterceptor } from './shared/interceptors/access-token.interceptor';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { AccessTokenInterceptor } from './shared/interceptors/access-token.inter
         deps: [HttpClient],
       },
     }),
+    StoreModule.forRoot({ auth: authReducer }),
   ],
   providers: [
     {

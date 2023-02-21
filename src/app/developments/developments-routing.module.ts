@@ -14,6 +14,13 @@ const routes: Routes = [
       import('./todolist/todolist.module').then((m) => m.TodolistModule),
   },
   {
+    path: 'counter-redux',
+    loadChildren: () =>
+      import('./counter-redux/counter-redux.module').then(
+        (m) => m.CounterReduxModule
+      ),
+  },
+  {
     path: '**',
     component: Error404Component,
   },

@@ -11,4 +11,9 @@ export const developments: developmentsModel[] = [
     title: 'developments.1.title',
     description: 'developments.1.description',
   },
+  {
+    url: 'counter-redux',
+    title: 'developments.2.title',
+    description: 'developments.2.description',
+  },
 ];
