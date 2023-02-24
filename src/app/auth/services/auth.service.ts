@@ -1,17 +1,16 @@
-import { authModel } from './../../state/auth/auth.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { user } from 'src/app/app.model';
 import { AppState } from 'src/app/app.state';
+import * as actionsAuth from '../../state/auth/auth.actions';
 import { registerModelFB } from '../models/register.model';
 import { RegisterTransformer } from '../transformers/register-transformer';
 import { loginModelFB, loginModelResponse } from './../models/login.model';
 import { registerModelResponse } from './../models/register.model';
 import { LoginTransformer } from './../transformers/login-transformer';
 import { AuthHttpService } from './auth-http.service';
-import * as actionsAuth from '../../state/auth/auth.actions';
 
 /** servicio de autentificacion */
 @Injectable({

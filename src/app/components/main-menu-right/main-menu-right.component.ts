@@ -1,9 +1,8 @@
-import { user } from '../../app.model';
-import { AuthService } from './../../auth/services/auth.service';
 import { Component } from '@angular/core';
-import { authModel } from 'src/app/state/auth/auth.model';
-import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { authModel } from 'src/app/state/auth/auth.model';
+import { AuthService } from './../../auth/services/auth.service';
 
 /** menu derecho */
 @Component({
