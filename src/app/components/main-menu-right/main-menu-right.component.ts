@@ -1,6 +1,9 @@
 import { user } from '../../app.model';
 import { AuthService } from './../../auth/services/auth.service';
 import { Component } from '@angular/core';
+import { authModel } from 'src/app/state/auth/auth.model';
+import { AppState } from 'src/app/app.state';
+import { Store } from '@ngrx/store';
 
 /** menu derecho */
 @Component({
@@ -10,24 +13,32 @@ import { Component } from '@angular/core';
 })
 export class MainMenuRightComponent {
   /** user */
-  user: user = {
-    id: 0,
-    name: '',
-    email: '',
-    updated_at: new Date(),
-    created_at: new Date(),
-    surname: '',
+  /** user */
+  public user: authModel = {
+    user: {
+      id: 0,
+      name: '',
+      email: '',
+      updated_at: new Date(),
+      created_at: new Date(),
+      surname: '',
+    },
+    login: false,
+    access_token: '',
   };
 
   /** constructor */
-  constructor(private AuthService: AuthService) {
-    this.AuthService.user$.subscribe((res) => {
+  constructor(
+    private AuthService: AuthService,
+    private store: Store<AppState>
+  ) {
+    this.store.select('auth').subscribe((res) => {
       this.user = res;
     });
   }
 
   /** logout */
   logout(): void {
-    this.AuthService.logout();
+    this.AuthService.stateAuthLogout();
   }
 }

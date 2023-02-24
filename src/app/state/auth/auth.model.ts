@@ -1,6 +1,7 @@
 /** model auth */
 export type authModel = {
   login: boolean;
+  access_token?: string;
   user?: {
     id: number;
     name: string;

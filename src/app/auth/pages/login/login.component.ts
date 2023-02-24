@@ -49,12 +49,13 @@ export class LoginComponent {
       this.state.message = 'auth.response.loginError';
     }
 
-    if (response.access_token) {
+    if (response.access_token && response.user) {
       this.state.send = true;
       this.state.error = false;
       this.state.message = 'auth.response.loginOK';
-      this.AuthService.setToken(response.access_token);
-      this.AuthService.setUser(response.user || this.AuthService.getUser());
+
+      this.AuthService.stateAuthLogin(response.user, response.access_token);
+
       this.Router.navigate(['/']);
     }
 

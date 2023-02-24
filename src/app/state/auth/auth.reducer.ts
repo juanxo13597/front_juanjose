@@ -10,19 +10,18 @@ export const initialState: authModel = {
 /** auth reducer */
 export const authReducer = createReducer(
   initialState,
-  on(actions.login, (state) => {
-    console.log(state);
-    console.log('login');
+  on(actions.login, (state, props) => {
     return {
-      ...state,
       login: true,
+      user: props.user,
+      access_token: props.access_token,
     };
   }),
-  on(actions.logout, (state) => {
-    console.log(state);
-    console.log('logout');
+  on(actions.logout, () => {
     return {
       login: false,
+      user: undefined,
+      access_token: undefined,
     };
   })
 );

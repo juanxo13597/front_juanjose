@@ -21,7 +21,7 @@ export class AccessTokenInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.AuthService.getToken();
+    const token = localStorage.getItem('access_token');
     if (token && token !== '' && !this.noTokenRoutes(request.url)) {
       request = request.clone({
         setHeaders: {

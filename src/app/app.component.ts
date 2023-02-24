@@ -30,7 +30,10 @@ export class AppComponent {
   isBackActive() {
     this.appService.init().subscribe((res) => {
       if (res.user) {
-        this.AuthService.setUser(res.user);
+        this.AuthService.stateAuthLogin(
+          res.user,
+          localStorage.getItem('access_token') || ''
+        );
       }
       this.loading = false;
     });

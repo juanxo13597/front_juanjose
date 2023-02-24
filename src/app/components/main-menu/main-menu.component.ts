@@ -1,6 +1,8 @@
-import { AuthService } from './../../auth/services/auth.service';
-import { environment } from './../../../environments/environment';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { authModel } from 'src/app/state/auth/auth.model';
+import { environment } from './../../../environments/environment';
 
 /** componente de menu principal */
 @Component({
@@ -13,12 +15,23 @@ export class MainMenuComponent {
   public info = environment.info;
 
   /** user */
-  public user = this.AuthService.getUser();
+  public user: authModel = {
+    user: {
+      id: 0,
+      name: '',
+      email: '',
+      updated_at: new Date(),
+      created_at: new Date(),
+      surname: '',
+    },
+    login: false,
+    access_token: '',
+  };
 
   /** constructor */
-  constructor(private AuthService: AuthService) {
-    this.AuthService.user$.subscribe((user) => {
-      this.user = user;
+  constructor(private store: Store<AppState>) {
+    this.store.select('auth').subscribe((res) => {
+      this.user = res;
     });
   }
 }

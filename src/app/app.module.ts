@@ -1,5 +1,3 @@
-import { authReducer } from './store/auth.reducer';
-import { environment } from './../environments/environment';
 import {
   HttpClient,
   HttpClientModule,
@@ -7,19 +5,22 @@ import {
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { appState } from './app.state';
+import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
+import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
-import { SharedModule } from './shared/shared.module';
-import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
 import { AccessTokenInterceptor } from './shared/interceptors/access-token.interceptor';
-import { StoreModule } from '@ngrx/store';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,11 @@ import { StoreModule } from '@ngrx/store';
         deps: [HttpClient],
       },
     }),
-    StoreModule.forRoot({ auth: authReducer }),
+    StoreModule.forRoot(appState),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [
     {
