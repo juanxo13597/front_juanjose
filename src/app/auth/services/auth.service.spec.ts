@@ -8,6 +8,8 @@ import { AuthHttpService } from './auth-http.service';
 import { AuthService } from './auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BehaviorSubject } from 'rxjs';
+import { appState } from 'src/app/app.state';
+import { StoreModule } from '@ngrx/store';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -27,7 +29,11 @@ describe('AuthService', () => {
     });
 
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        StoreModule.forRoot(appState),
+      ],
       providers: [AuthHttpService],
     });
     service = TestBed.inject(AuthService);
@@ -59,40 +65,4 @@ describe('AuthService', () => {
 
     expect(service.login(user)).toBeTruthy();
   });
-
-  it('getToken', () => {
-    service.setToken('token');
-
-    expect(service.getToken()).toEqual('token');
-  });
-
-  it('setUser', () => {
-    const user = {
-      id: 0,
-      name: '',
-      surname: '',
-      email: '',
-      created_at: date,
-      updated_at: date,
-    };
-    service.setUser(user);
-
-    expect(service.getUser()).toEqual(user);
-  });
-
-  it('should clear access_token, user and localStorage, and navigate to root', fakeAsync(() => {
-    service.logout();
-
-    expect(access_token.value).toEqual('token');
-    expect(user.value).toEqual({
-      id: 1,
-      name: 'John',
-      surname: 'Doe',
-      email: 'john.doe@example.com',
-      updated_at: date,
-      created_at: date,
-    });
-
-    tick();
-  }));
 });

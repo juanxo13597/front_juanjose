@@ -1,8 +1,10 @@
 /* eslint-disable jasmine/prefer-toHaveBeenCalledWith */
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
+import { appState } from 'src/app/app.state';
 import { constants } from '../../../shared/constants/constants';
 import { AuthService } from '../../services/auth.service';
 
@@ -15,7 +17,11 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, TranslateModule.forRoot()],
+      imports: [
+        HttpClientTestingModule,
+        TranslateModule.forRoot(),
+        StoreModule.forRoot(appState),
+      ],
       declarations: [LoginComponent],
       providers: [AuthService],
     }).compileComponents();
@@ -58,6 +64,14 @@ describe('LoginComponent', () => {
     spyOn(service, 'login').and.returnValue(
       of({
         access_token: 'token',
+        user: {
+          id: 1,
+          name: 'name',
+          surname: 'surname',
+          email: 'email',
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
       })
     );
 

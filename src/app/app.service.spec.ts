@@ -3,8 +3,10 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { AppService } from './app.service';
+import { appState } from './app.state';
 
 describe('AppService', () => {
   let service: AppService;
@@ -12,7 +14,7 @@ describe('AppService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, StoreModule.forRoot(appState)],
     });
     service = TestBed.inject(AppService);
     httpTestingController = TestBed.inject(HttpTestingController);

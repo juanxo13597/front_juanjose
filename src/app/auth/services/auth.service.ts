@@ -51,9 +51,4 @@ export class AuthService {
     this.store.dispatch(actionsAuth.logout());
     this.Router.navigate(['/']);
   }
-
-  /** get state auth */
-  stateAuthGet(): Observable<authModel> {
-    return this.store.select((appState) => appState.auth);
-  }
 }

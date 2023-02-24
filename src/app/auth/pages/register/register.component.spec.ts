@@ -8,6 +8,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from '../../services/auth.service';
 import { of } from 'rxjs';
 import { constants } from 'src/app/shared/constants/constants';
+import { appState } from 'src/app/app.state';
+import { StoreModule } from '@ngrx/store';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -21,6 +23,7 @@ describe('RegisterComponent', () => {
         ReactiveFormsModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
+        StoreModule.forRoot(appState),
       ],
       declarations: [RegisterComponent],
       providers: [AuthService],
