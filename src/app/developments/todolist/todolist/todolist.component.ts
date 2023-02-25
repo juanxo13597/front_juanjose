@@ -41,11 +41,11 @@ export class TodolistComponent {
   info: AccordionInputModel[] = [
     {
       title: 'info.description',
-      content: 'todolists.description',
+      content: 'todolist.description',
     },
     {
       title: 'info.tecnology',
-      content: 'todolists.technologies',
+      content: 'todolist.technologies',
     },
   ];
 }
