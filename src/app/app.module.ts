@@ -21,6 +21,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
 import { AccessTokenInterceptor } from './shared/interceptors/access-token.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
     Error404Component,
     ChangeTranslateComponent,
     MainMenuRightComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
