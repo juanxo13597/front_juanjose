@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
@@ -14,6 +15,7 @@ import { TodolistComponent } from './todolist/todolist.component';
     TodolistRoutingModule,
     TranslateModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
 })
 export class TodolistModule {}

@@ -63,5 +63,13 @@
     "current": "Contador actual:",
     "Decrement": "Decrementar",
     "Reset": "Reiniciar"
+  },
+  "info": {
+    "tecnology": "Tecnología",
+    "description": "Descripción"
+  },
+  "todolists": {
+    "technologies": "Este desarrollo esta basado en un simple array, validando tanto el formulario como el boton con Reactive Forms y uso del evento keyup (enter)",
+    "description": "Simple todolist, podemos agregar tareas escribiendo en el input y pulsando el boton agregar tarea o pulsando la tecla intro. Para eliminar una tarea solo presiona el boton de la cruz."
   }
 }

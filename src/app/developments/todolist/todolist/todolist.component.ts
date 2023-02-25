@@ -1,3 +1,4 @@
+import { AccordionInputModel } from './../../../shared/components/accordion/accordion.model';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -35,4 +36,16 @@ export class TodolistComponent {
   onKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') this.addTask();
   }
+
+  /** info */
+  info: AccordionInputModel[] = [
+    {
+      title: 'info.description',
+      content: 'todolists.description',
+    },
+    {
+      title: 'info.tecnology',
+      content: 'todolists.technologies',
+    },
+  ];
 }
