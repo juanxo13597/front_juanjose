@@ -55,7 +55,7 @@
       "description": "This is a simple counter, where you can increase, decrease and reset the counter."
     }
   },
-  "todolits": {
+  "todolist": {
     "addTask": "Add task:",
     "technologies": "This development is based on a simple array, validating both the form and the button with Reactive Forms and use of the keyup event (enter)",
     "description": "Simple todolist, we can add tasks by typing in the input and pressing the add task button or pressing the enter key. \nTo delete a task just press the cross button."
