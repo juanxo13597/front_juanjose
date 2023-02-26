@@ -14,14 +14,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appState } from './app.state';
 import { ChangeTranslateComponent } from './components/change-translate/change-translate.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { MainMenuRightComponent } from './components/main-menu-right/main-menu-right.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { TableHomePageComponent } from './pages/home-page/table-home-page/table-home-page.component';
 import { LoadingInterceptor } from './shared/components/loading/loading.interceptor';
 import { AccessTokenInterceptor } from './shared/interceptors/access-token.interceptor';
 import { SharedModule } from './shared/shared.module';
-import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ChangeTranslateComponent,
     MainMenuRightComponent,
     FooterComponent,
+    TableHomePageComponent,
   ],
   imports: [
     BrowserModule,

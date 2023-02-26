@@ -1,0 +1,151 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-secondary btn-lg mx-1"
+  data-bs-toggle="modal"
+  data-bs-target="#modalBack"
+>
+  {{ "info.tecnology" | translate }} {{ "home.info.back" | translate }}
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modalBack"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ "info.tecnology" | translate }} {{ "home.info.back" | translate }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-center display-5">
+          {{ "home.table.dependencies" | translate }}
+        </h5>
+        <table class="table" aria-describedby="tabla de tecnologias front">
+          <thead>
+            <tr>
+              <th scope="col">{{ "home.table.name" | translate }}</th>
+              <th scope="col">{{ "home.table.version" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tec of tecBack.dependencies">
+              <th scope="row">{{ tec.name }}</th>
+              <td>{{ tec.version }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h5 class="text-center display-5">
+          {{ "home.table.devdependencies" | translate }}
+        </h5>
+        <table class="table" aria-describedby="tabla de tecnologias front">
+          <thead>
+            <tr>
+              <th scope="col">{{ "home.table.name" | translate }}</th>
+              <th scope="col">{{ "home.table.version" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tec of tecBack.devDependencies">
+              <th scope="row">{{ tec.name }}</th>
+              <td>{{ tec.version }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ "close" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-secondary btn-lg mx-1"
+  data-bs-toggle="modal"
+  data-bs-target="#modalFront"
+>
+  {{ "info.tecnology" | translate }} {{ "home.info.front" | translate }}
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modalFront"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ "info.tecnology" | translate }} {{ "home.info.front" | translate }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-center display-5">
+          {{ "home.table.dependencies" | translate }}
+        </h5>
+        <table class="table" aria-describedby="tabla de tecnologias front">
+          <thead>
+            <tr>
+              <th scope="col">{{ "home.table.name" | translate }}</th>
+              <th scope="col">{{ "home.table.version" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tec of tecFront.dependencies">
+              <th scope="row">{{ tec.name }}</th>
+              <td>{{ tec.version }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h5 class="text-center display-5">
+          {{ "home.table.devdependencies" | translate }}
+        </h5>
+        <table class="table" aria-describedby="tabla de tecnologias front">
+          <thead>
+            <tr>
+              <th scope="col">{{ "home.table.name" | translate }}</th>
+              <th scope="col">{{ "home.table.version" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tec of tecFront.devDependencies">
+              <th scope="row">{{ tec.name }}</th>
+              <td>{{ tec.version }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ "close" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

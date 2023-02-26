@@ -68,6 +68,25 @@
   },
   "info": {
     "tecnology": "Technology",
-    "description": "Description"
+    "description": "Description",
+    "github": {
+      "front": "Github Frontend",
+      "back": "Github Backend"
+    }
+  },
+  "homePage": {
+    "description": "Web created as a personal project to develop, carry out technical tests, learn new design patterns, ect..."
+  },
+  "home": {
+    "table": {
+      "name": "Name",
+      "version": "Version",
+      "dependencies": "dependencies",
+      "devdependencies": "development dependencies"
+    },
+    "info": {
+      "front": "Frontend",
+      "back": "Backend"
+    }
   }
 }

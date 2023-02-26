@@ -1,1 +1,33 @@
-home
+<div class="container text-center">
+  <img src="../../../assets/favicon.png" alt="logo" width="100" height="100" />
+  <h1 class="display-1 mb-5">{{ info.nameApp }}</h1>
+
+  <div class="px-3">
+    <p class="lead">
+      {{ "homePage.description" | translate }}
+    </p>
+    <p class="lead">
+      <a
+        href="{{ urls.back }}"
+        target="_blank"
+        class="btn btn-lg btn-secondary fw-bold border-dark bg-dark m-1"
+        >{{ "info.github.back" | translate }}</a
+      >
+      <a
+        href="{{ urls.front }}"
+        target="_blank"
+        class="btn btn-lg btn-secondary fw-bold border-dark bg-dark m-1"
+        >{{ "info.github.front" | translate }}</a
+      >
+    </p>
+    <app-table-home-page></app-table-home-page>
+    <br />
+    <a target="_blank" href="{{ urlApi }}documentation"
+      ><img
+        class="mt-4"
+        src="../../../assets/img/logos/swagger.png"
+        alt="swagger"
+        width="500"
+    /></a>
+  </div>
+</div>

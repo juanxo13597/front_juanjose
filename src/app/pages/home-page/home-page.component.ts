@@ -1,3 +1,5 @@
+import { constants } from './../../shared/constants/constants';
+import { environment } from './../../../environments/environment';
 import { Component } from '@angular/core';
 
 /** pagina de inicio */
@@ -6,4 +8,13 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  /** info */
+  info = environment.info;
+
+  /** urls */
+  urls = constants.github;
+
+  /** url api */
+  urlApi = environment.api;
+}
