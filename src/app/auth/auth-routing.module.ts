@@ -1,3 +1,4 @@
+import { ProfileComponent } from './pages/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from '../pages/error404/error404.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate: [AuthGuard],
     data: { auth: true },
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: '**',
