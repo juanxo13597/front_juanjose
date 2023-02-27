@@ -1,3 +1,4 @@
+import { AccordionInputModel } from './../../../shared/components/accordion/accordion.model';
 import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -32,4 +33,16 @@ export class HijoComponent {
   reset() {
     this.store.dispatch(reset());
   }
+
+  /** info */
+  info: AccordionInputModel[] = [
+    {
+      title: 'info.description',
+      content: 'counterRedux.description',
+    },
+    {
+      title: 'info.tecnology',
+      content: 'counterRedux.technologies',
+    },
+  ];
 }

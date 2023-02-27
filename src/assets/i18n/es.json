@@ -64,7 +64,9 @@
     "Increment": "Incrementar",
     "current": "Contador actual:",
     "Decrement": "Decrementar",
-    "Reset": "Reiniciar"
+    "Reset": "Reiniciar",
+    "description": "Aplicación web para la gestión de tareas pendientes.",
+    "technologies": "contador con redux que incrementa, reduce o reinicia el contador"
   },
   "info": {
     "tecnology": "Tecnología",

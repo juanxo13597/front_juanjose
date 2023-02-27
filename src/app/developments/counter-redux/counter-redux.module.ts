@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { counterReducer } from './store/counter.reducer';
     CounterReduxRoutingModule,
     TranslateModule,
     StoreModule.forFeature('count', counterReducer),
+    SharedModule,
   ],
 })
 export class CounterReduxModule {}

@@ -64,7 +64,9 @@
     "Increment": "Increase",
     "current": "current counter:",
     "Decrement": "decrease",
-    "Reset": "Restart"
+    "Reset": "Restart",
+    "description": "Simple todolist, we can add tasks by typing in the input and pressing the add task button or pressing the enter key. \nTo delete a task just press the cross button.",
+    "technologies": "This development is based on a simple array, validating both the form and the button with Reactive Forms and use of the keyup event (enter) with state redux"
   },
   "info": {
     "tecnology": "Technology",
